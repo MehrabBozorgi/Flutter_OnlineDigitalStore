@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../Item/DrawerItem.dart';
+import '../Item/Main/DrawerItem.dart';
 import '../Const.dart';
 import 'GameScreen.dart';
 import 'MovieScreen.dart';
@@ -19,9 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         drawer: Container(
           //
-          //
           child: DrawerItem(),
-          //
           //
         ),
         extendBodyBehindAppBar: true,
@@ -31,10 +29,20 @@ class _HomeScreenState extends State<HomeScreen> {
           labelStyle: kSelectedTextTabView,
           unselectedLabelColor: Color(0xFF92E348),
           indicatorSize: TabBarIndicatorSize.label,
-          indicator: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Color(0xFF92E348),
+
+          // borderRadius: BorderRadius.circular(10),
+          // color: Color(0xFF92E348),
+          indicator: ShapeDecoration(
+            shape: UnderlineInputBorder(
+              borderSide: BorderSide(
+                  color: Colors.transparent,
+                  width: 0,
+                  style: BorderStyle.solid),
+            ),
+          color: Color(0xFF92E348),
           ),
+
+
           tabs: [
             Tab(
               child: Align(

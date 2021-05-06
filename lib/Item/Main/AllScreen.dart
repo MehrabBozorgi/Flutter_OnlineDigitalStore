@@ -4,7 +4,8 @@ import 'package:flutter_online_movie_shop/Model/Movie.dart';
 import 'package:flutter_online_movie_shop/Widgets/AppUrlWidget.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
-import '../Const.dart';
+
+import '../../Const.dart';
 
 class AllMovieScreen extends StatefulWidget {
   @override
