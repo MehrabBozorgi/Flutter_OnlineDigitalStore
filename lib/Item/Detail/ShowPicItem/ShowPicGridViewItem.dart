@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_online_movie_shop/Model/Pic.dart';
-import 'package:flutter_online_movie_shop/Widgets/CircleWidget.dart';
+
 
 class ShowPicGridViewItem extends StatelessWidget {
   const ShowPicGridViewItem({

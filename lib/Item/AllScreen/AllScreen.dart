@@ -4,7 +4,6 @@ import 'package:flutter_online_movie_shop/Model/Movie.dart';
 import 'package:flutter_online_movie_shop/Widgets/AppUrlWidget.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
-
 import '../../Const.dart';
 
 class AllMovieScreen extends StatefulWidget {
@@ -19,10 +18,11 @@ class _AllMovieScreenState extends State<AllMovieScreen> {
   @override
   Widget build(BuildContext context) {
     getMovieAll();
-    getAnimation();
+
 
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: Text(
           'مجموعه فیلم ها',
           style: kHomeTitleName,
@@ -34,18 +34,14 @@ class _AllMovieScreenState extends State<AllMovieScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              //color: Colors.red,
-              width: double.infinity,
-              height: 600,
-              child: AllScreenItem(
-                list: movieList,
-              ),
-            ),
-          ],
+      body: Container(
+        margin: EdgeInsets.symmetric(vertical: 15,horizontal: 10),
+        //color: Colors.red,
+        width: double.infinity,
+        height:MediaQuery.of(context).size.height,
+        //MediaQuery.of(context).size.height,
+        child: AllScreenItem(
+          list: movieList,
         ),
       ),
     );
@@ -65,37 +61,11 @@ class _AllMovieScreenState extends State<AllMovieScreen> {
                 Movie(
                   id: int.parse(data[i]['id']),
                   price: int.parse(data[i]['price']),
+                  zaman: int.parse(data[i]['zaman']),
                   name: data[i]['name'],
-                  description: data[i]['description'],
-                  image_url: data[i]['image_url'],
-                  saleSakht: data[i]['saleSakht'],
-                ),
-              );
-            });
-          }
-        }
-      });
-    }
-  }
-
-  getAnimation() async {
-    var url = Uri.parse(AppUrl.url + 'animation1');
-
-    if (animationList.length == 0) {
-      await http.get(url).then((value) {
-        if (value.statusCode == 200) {
-          print(value.statusCode);
-          List data = convert.jsonDecode(value.body);
-          for (int i = 0; i < data.length; i++) {
-            setState(() {
-              animationList.add(
-                Movie(
-                  id: int.parse(data[i]['id']),
-                  price: int.parse(data[i]['price']),
-                  name: data[i]['name'],
-                  description: data[i]['description'],
-                  image_url: data[i]['image_url'],
                   keshvar: data[i]['keshvar'],
+
+                  image_url: data[i]['image_url'],
                   saleSakht: data[i]['saleSakht'],
                 ),
               );
@@ -105,4 +75,6 @@ class _AllMovieScreenState extends State<AllMovieScreen> {
       });
     }
   }
+
+
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_online_movie_shop/Model/Comment.dart';
+import 'package:flutter_online_movie_shop/Widgets/AppUrlWidget.dart';
 import 'package:flutter_online_movie_shop/Widgets/CircleWidget.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -22,7 +23,7 @@ class _ShowCommentScreenState extends State<ShowCommentScreen> {
 
   _ShowCommentScreenState(idM) {
     var url = Uri.parse(
-        'http://192.168.1.50/movieshopp/connect.php?action=get_comment&comment_id=${idM}');
+        AppUrl.url+'get_comment&comment_id=${idM}');
 
     http.get(url).then(
       (value) {
@@ -36,7 +37,7 @@ class _ShowCommentScreenState extends State<ShowCommentScreen> {
                   Comment(
                     id: int.parse(data[i]['id']),
                     comment_id: int.parse(data[i]['comment_id']),
-                    name: data[i]['name'],
+                    username: data[i]['username'],
                     content: data[i]['content'],
                     time: data[i]['time'],
                   ),
@@ -92,7 +93,7 @@ class _ShowCommentScreenState extends State<ShowCommentScreen> {
                               Container(
                                 width: 120,
                                 child: Text(
-                                  commentList[index].name,
+                                  commentList[index].username,
                                   textAlign: TextAlign.right,
                                   style: kHomeTitleName,
                                 ),

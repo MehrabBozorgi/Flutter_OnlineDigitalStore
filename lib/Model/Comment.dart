@@ -2,7 +2,7 @@ class Comment {
   final int id;
   final int comment_id;
 
-  final String name;
+  final String username;
 
   final String content;
   final String time;
@@ -10,7 +10,7 @@ class Comment {
   Comment({
     this.id,
     this.comment_id,
-    this.name,
+    this.username,
     this.content,
     this.time,
   });
