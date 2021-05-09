@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../Const.dart';
+import '../../../Const.dart';
 
 class ProductPriceItem extends StatelessWidget {
   const ProductPriceItem({@required this.price});

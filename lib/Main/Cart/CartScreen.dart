@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_online_movie_shop/Item/CartScreen/DeleteProductViewItem.dart';
-import 'package:flutter_online_movie_shop/Item/CartScreen/NoButton.dart';
-import 'package:flutter_online_movie_shop/Item/CartScreen/ProductPriceItem.dart';
-import 'package:flutter_online_movie_shop/Item/CartScreen/TotalCartPriceItem.dart';
-import 'package:flutter_online_movie_shop/Item/CartScreen/TotalProductPriceItem.dart';
-import 'package:flutter_online_movie_shop/Widgets/AppUrlWidget.dart';
-import '../Const.dart';
+import '../../Const.dart';
 import 'Cart.dart';
+import 'TotalCartPriceItem.dart';
+import 'TotalProductPriceItem.dart';
+import 'item/DeleteProductViewItem.dart';
+import 'item/NoButton.dart';
+import 'item/ProductPriceItem.dart';
 
 class CartScreen extends StatefulWidget {
   @override
@@ -75,14 +74,18 @@ class _CartScreenState extends State<CartScreen> {
                         //Yes Button
                         RaisedButton(
                           onPressed: () {
-                            Cart.empty_cart().then((response) {
-                              Navigator.pop(context);
-                              if (response) {
-                                setState(() {
-                                  movie_listData = [];
-                                });
-                              }
-                            });
+                            Cart.empty_cart().then(
+                              (response) {
+                                Navigator.pop(context);
+                                if (response) {
+                                  setState(
+                                    () {
+                                      movie_listData = [];
+                                    },
+                                  );
+                                }
+                              },
+                            );
                           },
                           child: Text(
                             'بله',

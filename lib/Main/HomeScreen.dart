@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import '../Item/Main/DrawerItem.dart';
+import 'package:flutter_online_movie_shop/Serial/screen/SerialScreen.dart';
 import '../Const.dart';
-import 'GameScreen.dart';
-import 'MovieScreen.dart';
-import 'SerialScreen.dart';
+import '../Game/GameScreen.dart';
+import '../Movie/screen/MovieScreen.dart';
+import 'Cart/CartScreen.dart';
+import 'DrawerItem.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
           unselectedLabelStyle: kUnSelectedTextTabView,
           labelStyle: kSelectedTextTabView,
           unselectedLabelColor: Color(0xFF92E348),
-          indicatorSize: TabBarIndicatorSize.label,
+          indicatorSize: TabBarIndicatorSize.tab,
 
           // borderRadius: BorderRadius.circular(10),
           // color: Color(0xFF92E348),
@@ -39,9 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 0,
                   style: BorderStyle.solid),
             ),
-          color: Color(0xFF92E348),
+            color: Color(0xFF92E348),
           ),
-
 
           tabs: [
             Tab(
@@ -69,7 +69,14 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             IconButton(
               icon: Icon(Icons.shopping_cart_outlined),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CartScreen(),
+                  ),
+                );
+              },
             ),
           ],
           elevation: 0,
