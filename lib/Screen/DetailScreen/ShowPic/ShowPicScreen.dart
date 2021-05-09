@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_online_movie_shop/Item/Detail/ShowPicItem/ShowPicGridViewItem.dart';
 import 'package:flutter_online_movie_shop/Model/Pic.dart';
+import 'package:flutter_online_movie_shop/Widgets/AppUrlWidget.dart';
 import 'package:flutter_online_movie_shop/Widgets/CircleWidget.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -33,8 +34,7 @@ class _ShowPicScreenState extends State<ShowPicScreen> {
 
 //
   _ShowPicScreenState(idM) {
-    var url1 = Uri.parse(
-        'http://192.168.1.50/movieshopp/connect.php?action=getMoviePics&product_id=$idM');
+    var url1 = Uri.parse(AppUrl.url + 'getMoviePics&product_id=$idM');
 
     http.get(url1).then(
       (value) {
