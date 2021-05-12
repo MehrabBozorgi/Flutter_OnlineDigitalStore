@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_online_movie_shop/Serial/screen/SerialScreen.dart';
 import '../Const.dart';
-import '../Game/GameScreen.dart';
+import '../Game/screen/GameScreen.dart';
 import '../Movie/screen/MovieScreen.dart';
 import 'Cart/CartScreen.dart';
 import 'DrawerItem.dart';
