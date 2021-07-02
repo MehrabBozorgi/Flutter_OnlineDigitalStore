@@ -27,7 +27,18 @@ class _MovieScreenState extends State<MovieScreen> {
   List<Stars> starsList = [];
   int number;
 
-  get index => null;
+  @override
+  void initState() {
+    super.initState();
+
+    getMovie(1, movieList1);
+    getMovie(2, movieList2);
+    getAnimation(1, animationList1);
+    getAnimation(2, animationList2);
+    getPageViewModel();
+    getStars();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +48,7 @@ class _MovieScreenState extends State<MovieScreen> {
     getAnimation(2, animationList2);
     getPageViewModel();
     getStars();
+
 
     return Scaffold(
       body: SingleChildScrollView(
